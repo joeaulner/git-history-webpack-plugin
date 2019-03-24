@@ -5,6 +5,10 @@ module.exports = {
     mode: 'development',
     context: path.resolve(__dirname, 'src'),
     entry: './index.js',
+    node: {
+        __filename: true,
+        __dirname: true
+    },
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist')

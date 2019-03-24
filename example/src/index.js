@@ -1,8 +1,10 @@
 import _ from 'lodash';
+import childComponent from './child-component';
 
-function component() {
+export default function component() {
     let element = document.createElement('div');
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.innerHTML = _.join(['Hello', 'webpack', 'plugin'], ' ');
+    element.appendChild(childComponent());
     return element;
 }
 
