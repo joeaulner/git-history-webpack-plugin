@@ -11,5 +11,9 @@
     "webpack-cli": "3.3.0",
     "webpack-dev-server": "3.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@storybook/addons": "3.4.12",
+    "@storybook/core-events": "5.0.4",
+    "react": "16.8.5"
+  }
 }
