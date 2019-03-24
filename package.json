@@ -1,0 +1,14 @@
+{
+  "name": "git-history-webpack-plugin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/webpack": "4.4.26",
+    "eslint": "5.15.3",
+    "webpack": "4.29.6",
+    "webpack-cli": "3.3.0"
+  },
+  "dependencies": {}
+}
