@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import childComponent from './child-component';
+import childComponent from './child/child-component';
 
 export default function component() {
     let element = document.createElement('div');

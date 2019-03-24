@@ -6,8 +6,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: './index.js',
     node: {
-        __filename: true,
-        __dirname: true
+        __filename: true
     },
     output: {
         filename: 'main.js',

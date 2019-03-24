@@ -1,14 +1,17 @@
 console.log(module.id);
 console.log(__filename);
 
-export default function historyComponent() {
+export default function historyComponent(filename) {
     const element = document.createElement('div');
     import('./git-history.js').then((module) => {
-        for (let filename in module.default) {
-            const entry = document.createElement('div');
-            entry.innerHTML = filename;
-            element.appendChild(entry);
-        }
+        const entry = document.createElement('div');
+        entry.innerHTML = `<br />${filename}`;
+        module.default[filename].split(/\n+/).forEach((str) => {
+            const field = document.createElement('div');
+            field.innerHTML = str;
+            entry.appendChild(field);
+        });
+        element.appendChild(entry);
     });
     return element;
 }
