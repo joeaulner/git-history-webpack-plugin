@@ -34,7 +34,7 @@ class GitHistoryWebpackPlugin {
                 .map((line) => line.trim().split(' ')[1].replace(/\//g, '\\'));
 
             compilation.hooks.buildModule.tap(this.name, (module) => {
-                if (module.resource.includes('node_modules')) {
+                if (!module.resource || module.resource.includes('node_modules')) {
                     return;
                 }
 

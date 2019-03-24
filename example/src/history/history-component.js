@@ -1,6 +1,3 @@
-console.log(module.id);
-console.log(__filename);
-
 export default function historyComponent(filename) {
     const element = document.createElement('div');
     import('./git-history.js').then((module) => {
