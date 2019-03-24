@@ -26,13 +26,24 @@ class GitHistoryWebpackPlugin {
         });
 
         compiler.hooks.compilation.tap(this.name, (compilation, compilationParams) => {
+            const modified = childProcess
+                .execSync('git status -s', { cwd: compiler.context })
+                .toString()
+                .split(/\n+/)
+                .filter((filename) => filename)
+                .map((line) => line.trim().split(' ')[1].replace(/\//g, '\\'));
+
             compilation.hooks.buildModule.tap(this.name, (module) => {
                 if (module.resource.includes('node_modules')) {
                     return;
                 }
 
                 const filename = module.resource.replace(`${compiler.context}\\`, '');
-                this.moduleHistories[filename] = childProcess.execSync('git log -1').toString();
+                let moduleHistory = childProcess.execSync('git log -1').toString();
+                if (modified.includes(filename)) {
+                    moduleHistory = `(modified locally)\n${moduleHistory}`;
+                }
+                this.moduleHistories[filename] = moduleHistory;
             });
         });
 
